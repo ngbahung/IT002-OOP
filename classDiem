@@ -1,0 +1,63 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+class Point {
+private:
+    float x, y;
+public:
+    void in();
+    void out();
+    void x1();
+    void x2();
+    void x3();
+};
+
+void Point::in() {
+    cin >> x >> y;
+}
+void Point::out() {
+    cout << "(" << x << "," << y << ")";
+}
+void Point::x1() {
+    x *= 2;
+    y *= 2;
+}
+void Point::x2() {
+    x = 0;
+    y = 0;
+}
+void Point::x3() {
+    int k, d;
+    cin >> k >> d;
+    if (k == 0) x += d;
+    else y += d;
+}
+int main() {
+    Point p;
+    p.in();
+    int n; cin >> n;
+    int a; 
+    for (int i = 0; i < n; i++) {
+        cin >> a;
+        if (a == 1) {
+            p.x1();
+            continue;
+        }
+        if (a == 2) {
+            p.x2();
+            continue;
+        }
+        if (a == 3) {
+            p.x3();
+            continue;
+        }
+    }
+    p.out();
+    
+    
+    return 0;
+}
