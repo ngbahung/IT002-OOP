@@ -1,0 +1,46 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+class triangle {
+private:
+    float x1, y1, x2, y2, x3, y3;
+public:
+    void in();
+    void out();
+    void tinhTien(float alpha, float dx);
+};
+void triangle::in() {
+    cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
+}
+void triangle::out() {
+    cout << "(" << x1 << "," << y1 << ")" << endl;
+    cout << "(" << x2 << "," << y2 << ")" << endl;
+    cout << "(" << x3 << "," << y3 << ")" << endl;
+}
+void triangle::tinhTien(float alpha, float dx) {
+    float radian = alpha * 3.14 / 180.0;
+    x1 += dx * cos(radian);
+    y1 += dx * sin(radian);
+    x2 += dx * cos(radian);
+    y2 += dx * sin(radian);
+    x3 += dx * cos(radian);
+    y3 += dx * sin(radian);
+}
+int main() {
+    float alpha, dx;
+    
+    triangle tamGiac;
+    tamGiac.in();
+
+    cin >> alpha >> dx;
+
+    tamGiac.tinhTien(alpha, dx);
+
+    tamGiac.out();
+    return 0;
+}
+
